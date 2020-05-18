@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pn8-EL-XcT">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pokedex-->
+        <scene sceneID="gW2-qj-SaC">
+            <objects>
+                <tableViewController id="ja8-S4-ZFf" customClass="PokedexTableViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9cN-Wu-BAD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PokeyCell" rowHeight="86" id="Jp6-XL-f3E">
+                                <rect key="frame" x="0.0" y="28" width="414" height="86"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jp6-XL-f3E" id="P7d-Md-3BV">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="FQD-Na-dZL" kind="show" identifier="PokeyDetailSegue" id="Dhq-vU-dVM"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ja8-S4-ZFf" id="8au-xR-Zf4"/>
+                            <outlet property="delegate" destination="ja8-S4-ZFf" id="F5z-uY-NqU"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Pokedex" id="8Jw-tN-hrH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="meU-nv-ZOR">
+                            <connections>
+                                <segue destination="CUG-ov-OAf" kind="show" identifier="PokeySearchSegue" id="cJH-5N-Zmu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VMP-tc-hkh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1305.7971014492755" y="-295.3125"/>
+        </scene>
+        <!--Pokedex Detail View Controller-->
+        <scene sceneID="ZPL-MA-e7f">
+            <objects>
+                <viewController id="FQD-Na-dZL" customClass="PokedexDetailViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w9G-fK-Q9P">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2X5-qh-Kv7">
+                                <rect key="frame" x="54" y="216" width="306" height="306"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2X5-qh-Kv7" secondAttribute="height" multiplier="1:1" id="osO-dC-GVZ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAV-7E-R51">
+                                <rect key="frame" x="25" y="670" width="21" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abilities:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mlf-Ax-Xbc">
+                                <rect key="frame" x="25" y="752" width="65" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="12I-LI-c7f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Types:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cm-1x-GRl">
+                                <rect key="frame" x="25" y="711" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCz-W7-zhB">
+                                <rect key="frame" x="157" y="813" width="101" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save Pokemon"/>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="FQD-Na-dZL" eventType="touchUpInside" id="TfV-A8-wk7"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="idLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sz-6J-kRd">
+                                <rect key="frame" x="58" y="670" width="56" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="abilityLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dew-84-lEy">
+                                <rect key="frame" x="102" y="752" width="277" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="typeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCO-hL-kGF">
+                                <rect key="frame" x="88" y="711" width="76" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EoQ-ff-U8f">
+                                <rect key="frame" x="150" y="125" width="114" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Mlf-Ax-Xbc" firstAttribute="top" secondItem="0cm-1x-GRl" secondAttribute="bottom" constant="20" id="4sG-9Z-lkB"/>
+                            <constraint firstItem="0cm-1x-GRl" firstAttribute="leading" secondItem="PGs-Zq-knI" secondAttribute="leading" constant="25" id="6nl-cn-a79"/>
+                            <constraint firstItem="2X5-qh-Kv7" firstAttribute="top" secondItem="EoQ-ff-U8f" secondAttribute="bottom" constant="50" id="BK4-y0-tuC"/>
+                            <constraint firstItem="AAV-7E-R51" firstAttribute="baseline" secondItem="7sz-6J-kRd" secondAttribute="baseline" id="D5g-MZ-GnJ"/>
+                            <constraint firstItem="EoQ-ff-U8f" firstAttribute="top" secondItem="w9G-fK-Q9P" secondAttribute="top" constant="125" id="ES5-Me-83g"/>
+                            <constraint firstItem="Mlf-Ax-Xbc" firstAttribute="leading" secondItem="PGs-Zq-knI" secondAttribute="leading" constant="25" id="H82-e2-EEg"/>
+                            <constraint firstItem="lCO-hL-kGF" firstAttribute="top" secondItem="7sz-6J-kRd" secondAttribute="bottom" constant="20" id="Hxg-f0-J8x"/>
+                            <constraint firstItem="Dew-84-lEy" firstAttribute="top" secondItem="lCO-hL-kGF" secondAttribute="bottom" constant="20" id="KMX-XR-8Fh"/>
+                            <constraint firstItem="lCO-hL-kGF" firstAttribute="leading" secondItem="0cm-1x-GRl" secondAttribute="trailing" constant="12" id="MA4-BR-JCQ"/>
+                            <constraint firstItem="AAV-7E-R51" firstAttribute="leading" secondItem="PGs-Zq-knI" secondAttribute="leading" constant="25" id="QLR-xE-tQg"/>
+                            <constraint firstItem="2X5-qh-Kv7" firstAttribute="leading" secondItem="PGs-Zq-knI" secondAttribute="leading" constant="54" id="ZY9-D2-ZfD"/>
+                            <constraint firstItem="PGs-Zq-knI" firstAttribute="trailing" secondItem="EoQ-ff-U8f" secondAttribute="trailing" constant="150" id="Zob-eS-twF"/>
+                            <constraint firstItem="0cm-1x-GRl" firstAttribute="top" secondItem="AAV-7E-R51" secondAttribute="bottom" constant="20" id="baH-Oa-6h0"/>
+                            <constraint firstItem="PGs-Zq-knI" firstAttribute="trailing" secondItem="2X5-qh-Kv7" secondAttribute="trailing" constant="54" id="bsW-RP-tB2"/>
+                            <constraint firstItem="7sz-6J-kRd" firstAttribute="top" secondItem="2X5-qh-Kv7" secondAttribute="bottom" constant="148" id="epG-Xp-4NZ"/>
+                            <constraint firstItem="7sz-6J-kRd" firstAttribute="leading" secondItem="AAV-7E-R51" secondAttribute="trailing" constant="12" id="f0X-O9-t8S"/>
+                            <constraint firstItem="PGs-Zq-knI" firstAttribute="trailing" secondItem="Dew-84-lEy" secondAttribute="trailing" constant="35" id="l96-sQ-DYe"/>
+                            <constraint firstItem="EoQ-ff-U8f" firstAttribute="leading" secondItem="PGs-Zq-knI" secondAttribute="leading" constant="150" id="o6U-36-JnN"/>
+                            <constraint firstItem="Dew-84-lEy" firstAttribute="leading" secondItem="Mlf-Ax-Xbc" secondAttribute="trailing" constant="12" id="t9g-dM-93s"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PGs-Zq-knI"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3AM-26-af7"/>
+                    <connections>
+                        <outlet property="abililtyLabel" destination="Dew-84-lEy" id="Yit-qx-vss"/>
+                        <outlet property="idLabel" destination="7sz-6J-kRd" id="D16-sC-eyd"/>
+                        <outlet property="imageView" destination="2X5-qh-Kv7" id="5bL-Au-m2z"/>
+                        <outlet property="nameLabel" destination="EoQ-ff-U8f" id="B8q-2o-f0W"/>
+                        <outlet property="saveButton" destination="aCz-W7-zhB" id="Px4-Wb-oSE"/>
+                        <outlet property="typeLabel" destination="lCO-hL-kGF" id="ZA3-HR-0sw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Lv-XH-wLH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2080" y="108"/>
+        </scene>
+        <!--Pokemon search-->
+        <scene sceneID="oAk-Qf-Jo8">
+            <objects>
+                <viewController id="CUG-ov-OAf" customClass="PokedexSearchViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="40a-7E-s3j">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BML-mW-Y6B">
+                                <rect key="frame" x="0.0" y="151" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="vyC-ah-Yf8"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Pokemon search" id="SRz-lx-d5L"/>
+                    <connections>
+                        <outlet property="searchBar" destination="BML-mW-Y6B" id="s4y-wt-gVV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kn1-Oh-YVr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2080" y="-572"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bQQ-UN-qf6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pn8-EL-XcT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="TiI-y7-wjl">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ja8-S4-ZFf" kind="relationship" relationship="rootViewController" id="Ct1-VF-H4D"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ihY-UT-cdW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="395.6521739130435" y="-295.3125"/>
+        </scene>
+    </scenes>
+</document>
